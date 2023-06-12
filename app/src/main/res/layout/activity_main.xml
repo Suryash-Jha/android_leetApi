@@ -6,7 +6,7 @@
     android:layout_height="fill_parent"
     android:background=" #e1e5f7 "
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    >
 
     <TextView
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         android:textSize="50sp"
         android:gravity="center"
         android:layout_marginBottom="30sp"
-    />
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,6 +31,7 @@
             android:textSize="30sp"
             />
         <EditText
+            android:id="@+id/git_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -46,13 +47,20 @@
         android:textColor="#FFFFFF"
         android:layout_gravity="center"
         />
-   <TextView
-        android:layout_width="392dp"
-        android:layout_height="545dp"
+
+    <TextView
+        android:id="@+id/apiResp"
+        android:layout_width="300dp"
+        android:maxLines="20"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="insideInset"
+        android:layout_height="400dp"
         android:background="#FFFFFF"
         android:gravity="center"
-       android:textColor="@color/black"
-        android:layout_marginLeft="9sp"
-        android:textSize="40sp" />
+        android:textColor="@color/black"
+        android:layout_marginLeft="15dp"
+        android:textSize="20dp"
+         />
 </LinearLayout>
+
 
