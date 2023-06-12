@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity(){
         setContentView(R.layout.activity_main)
         val btn= findViewById<Button>(R.id.submitButton)
         btn.setOnClickListener {
-            val git_id= findViewById<EditText>(R.id.git_id).text
+            val leet_id= findViewById<EditText>(R.id.git_id).text
             val textView= findViewById<TextView>(R.id.apiResp)
             val okHttpClient= OkHttpClient()
             val request= Request.Builder()
-                .url("https://api.github.com/users/${git_id}")
+                .url("http://192.168.1.2:8000/${leet_id}")
                 .build()
             GlobalScope.launch {
                 val response= withContext(Dispatchers.IO){okHttpClient.newCall(request).execute()}
