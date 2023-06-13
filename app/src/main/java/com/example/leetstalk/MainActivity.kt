@@ -27,6 +27,9 @@ class MainActivity : AppCompatActivity(){
             val easyText= findViewById<TextView>(R.id.easyCount)
             val medText= findViewById<TextView>(R.id.medCount)
             val hardText= findViewById<TextView>(R.id.hardCount)
+            val statusView= findViewById<TextView>(R.id.statusView)
+            val ratingText= findViewById<TextView>(R.id.ratingCount)
+
 
             val gson= GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
                 .create()
@@ -34,20 +37,42 @@ class MainActivity : AppCompatActivity(){
 
             val okHttpClient= OkHttpClient()
             val request= Request.Builder()
-                .url("http://192.168.1.4:8000/${leet_id}")
+                .url("https://taquamediumorchidvoxels.suryashjha.repl.co/leetApi/${leet_id}")
                 .build()
             GlobalScope.launch {
                 val response= withContext(Dispatchers.IO){okHttpClient.newCall(request).execute().body?.string()}
                 val data= gson.fromJson<LeetData>(response, LeetData::class.java)
-                val easy= data.easy
-                val medium= data.medium
-                val hard= data.hard
+                var easy = 0
+                var medium = 0
+                var hard = 0
+                var rating = 0
+
+                if (data.status == 200) {
+                    easy = data.easy!!
+                    medium = data.medium!!
+                    hard = data.hard!!
+                    rating= data.rating!!
+
+                }
+
+
+//https://suryash.pythonanywhere.com/leetApi/<str:id>
 
                 Log.i("networking", "${response}")
                 runOnUiThread {
+                    if(data.status== 200){
+                        statusView.text="Details Found!"
+                        statusView.setBackgroundColor(android.graphics.Color.parseColor("#00FF00"))
+
+                    }
+                    else{
+                        statusView.text="User Doesn't Exist!"
+                        statusView.setBackgroundColor(android.graphics.Color.parseColor("#FF0000"))
+                    }
                     easyText.text = easy.toString()
                     medText.text = medium.toString()
                     hardText.text = hard.toString()
+                    ratingText.text= rating.toString()
 
                 }
             }
