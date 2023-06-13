@@ -16,6 +16,10 @@ import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
+import android.view.inputmethod.InputMethodManager
+import android.content.Context
+
+
 
 class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +27,14 @@ class MainActivity : AppCompatActivity(){
         setContentView(R.layout.activity_main)
         val btn= findViewById<Button>(R.id.submitButton)
         btn.setOnClickListener {
+            val focusedView = currentFocus
+
+            // Create an InputMethodManager instance
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+            // Hide the keyboard
+            inputMethodManager.hideSoftInputFromWindow(focusedView?.windowToken, 0)
+
             val leet_id= findViewById<EditText>(R.id.git_id).text
             val easyText= findViewById<TextView>(R.id.easyCount)
             val medText= findViewById<TextView>(R.id.medCount)
