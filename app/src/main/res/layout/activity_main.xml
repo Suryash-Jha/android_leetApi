@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background=" #e1e5f7 "
+    android:background="#F1AD69"
     android:orientation="vertical"
     >
 <Button
@@ -49,15 +49,29 @@
             android:textSize="30sp"
             />
     </LinearLayout>
-    <Button
-        android:id="@+id/submitButton"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Submit"
-        android:textColor="#FFFFFF"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/gfgButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#038303"
+            android:text="GFG Stalk"
+            android:layout_marginRight="10sp"
+            />
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Submit"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
  <TextView
      android:id="@+id/statusView"
      android:textColor="@color/black"
@@ -200,7 +214,6 @@
                     android:textSize="30sp"
                     />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -221,7 +234,7 @@
                     android:id="@+id/urlText"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textColor="@color/black"
+                    android:textColor="#0000EE"
                     android:textSize="20sp"
                     tools:text="" />
             </LinearLayout>
