@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity(){
             val hardText= findViewById<TextView>(R.id.hardCount)
             val statusView= findViewById<TextView>(R.id.statusView)
             val ratingText= findViewById<TextView>(R.id.ratingCount)
+            val urlText= findViewById<TextView>(R.id.urlText)
+            val totalText= findViewById<TextView>(R.id.totalText)
 
 
             val gson= GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
@@ -52,18 +54,29 @@ class MainActivity : AppCompatActivity(){
                 .url("https://taquamediumorchidvoxels.suryashjha.repl.co/leetApi/${leet_id}")
                 .build()
             GlobalScope.launch {
-                val response= withContext(Dispatchers.IO){okHttpClient.newCall(request).execute().body?.string()}
+                val response: String? = try {
+                    withContext(Dispatchers.IO) {
+                        okHttpClient.newCall(request).execute().body?.string()
+                    }
+                } catch (e: Exception) {
+                    "{\"status\": 502 }"
+
+                }
                 val data= gson.fromJson<LeetData>(response, LeetData::class.java)
                 var easy = 0
                 var medium = 0
                 var hard = 0
                 var rating = 0
+                var url= ""
+                var total= 0
 
                 if (data.status == 200) {
                     easy = data.easy!!
                     medium = data.medium!!
                     hard = data.hard!!
                     rating= data.rating!!
+                    url= data.userProfileLink!!
+                    total= data.total!!
 
                 }
 
@@ -77,14 +90,20 @@ class MainActivity : AppCompatActivity(){
                         statusView.setBackgroundColor(android.graphics.Color.parseColor("#00FF00"))
 
                     }
-                    else{
+                    else if(data.status==404){
                         statusView.text="User Doesn't Exist!"
                         statusView.setBackgroundColor(android.graphics.Color.parseColor("#FF0000"))
+                    }
+                    else{
+                        statusView.text="Api Call Failed!"
+                        statusView.setBackgroundColor(android.graphics.Color.parseColor("#FFA500"))
                     }
                     easyText.text = easy.toString()
                     medText.text = medium.toString()
                     hardText.text = hard.toString()
                     ratingText.text= rating.toString()
+                    urlText.text= url
+                    totalText.text= total.toString()
 
                 }
             }

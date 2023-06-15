@@ -7,16 +7,27 @@
     android:background=" #e1e5f7 "
     android:orientation="vertical"
     >
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="back"
+    android:textColor="@color/black"
+    android:layout_gravity="end"
+    android:layout_marginRight="5sp"
+    android:backgroundTint="#FFFFFF"
 
+    />
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Leet Stalk"
         android:padding="20sp"
-        android:background="#e1e5f7"
+        android:background="@drawable/border"
         android:textColor="#110114 "
         android:textSize="50sp"
         android:gravity="center"
+        android:layout_gravity="center"
         android:layout_marginBottom="30sp"
         />
     <LinearLayout
@@ -55,112 +66,188 @@
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
      />
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:background="#FFFFFF"
+        android:background=" #e1e5f7 "
         >
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50sp"
-            android:layout_marginTop="20sp"
-
-
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="#FFFFFF"
             >
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rating: "
-                android:textColor="#63036A"
-                android:textSize="30sp"
-                />
-            <TextView
-                android:id="@+id/ratingCount"
-                tools:text=""
-                android:layout_width="wrap_content"
+                android:layout_marginLeft="50sp"
+                android:layout_marginTop="20sp"
+
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total: "
+                    android:textColor="#63036A"
+                    android:textSize="30sp"
+                    />
+                <TextView
+                    android:id="@+id/totalText"
+                    tools:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                />
+                android:layout_marginLeft="50sp"
+                android:layout_marginTop="20sp"
+
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Easy: "
+                    android:textColor="#108114"
+                    android:textSize="30sp"
+                    />
+                <TextView
+                    android:id="@+id/easyCount"
+                    tools:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50sp"
+                android:layout_marginTop="20sp"
+
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Medium: "
+                    android:textColor="#D88306"
+                    android:textSize="30sp"
+                    />
+                <TextView
+                    android:id="@+id/medCount"
+                    tools:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50sp"
+                android:layout_marginTop="20sp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hard: "
+                    android:textColor="#E80F0F"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/hardCount"
+                    tools:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50sp"
+                android:layout_marginTop="20sp"
+
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rating: "
+                    android:textColor="#63036A"
+                    android:textSize="30sp"
+                    />
+                <TextView
+                    android:id="@+id/ratingCount"
+                    tools:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="50sp"
+                android:layout_marginTop="20sp"
+
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Url: "
+                    android:textColor="#63036A"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/urlText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    tools:text="" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50sp"
+                android:layout_marginTop="20sp"
+
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#63036A"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    />
+            </LinearLayout>
+
+
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50sp"
-            android:layout_marginTop="20sp"
-
-
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Easy: "
-                android:textColor="#108114"
-                android:textSize="30sp"
-                />
-            <TextView
-                android:id="@+id/easyCount"
-                tools:text=""
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50sp"
-            android:layout_marginTop="20sp"
-
-
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Medium: "
-                android:textColor="#D88306"
-                android:textSize="30sp"
-                />
-            <TextView
-                android:id="@+id/medCount"
-                tools:text=""
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50sp"
-            android:layout_marginTop="20sp"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hard: "
-                android:textColor="#E80F0F"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/hardCount"
-                tools:text=""
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                />
-        </LinearLayout>
-
-
-    </LinearLayout>
+    </ScrollView>
 
 <!--    <TextView-->
 <!--        android:id="@+id/apiResp"-->
